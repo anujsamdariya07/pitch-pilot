@@ -46,38 +46,38 @@ const Home = (props: Props) => {
             </div>
 
             <div className='flex flex-col gap-4 items-start'>
-              {Array.from({length: 3}).map((_, index) => (
+              {Array.from({ length: 3 }).map((_, index) => (
                 <Image
-                src={'/featurecard.png'}
-                alt='Info-card'
-                width={250}
-                height={250}
-                className='w-full h-full object-cover rounded-xl'
-                key={index}
+                  src={'/featurecard.png'}
+                  alt='Info-card'
+                  width={250}
+                  height={250}
+                  className='w-full h-full object-cover rounded-xl'
+                  key={index}
                 />
               ))}
             </div>
           </div>
         </FeatureSectionLayout>
         <FeatureSectionLayout
-        heading='See the list of current customers'
-        link='/pipeline'
+          heading='See the list of current customers'
+          link='/pipeline'
         >
           <div className='flex gap-4 items-center h-full w-full justify-center relative flex-wrap'>
             {potentialCustomer.slice(0, 2).map((customer, index) => (
-              <UserInfoCard 
-              customer={customer}
-              tags={customer.tags}
-              key={index}
+              <UserInfoCard
+                customer={customer}
+                tags={customer.tags}
+                key={index}
               />
             ))}
 
             <Image
-            src={'/glowCard.png'}
-            alt='Info-card'
-            width={350}
-            height={350}
-            className='object-cover rounded-xl absolute px-5 mb-8 hidden sm:flex backdrop-blur-fit'
+              src={'/glowCard.png'}
+              alt='Info-card'
+              width={350}
+              height={350}
+              className='object-cover rounded-xl absolute px-5 mb-8 hidden sm:flex backdrop-blur-fit'
             />
           </div>
         </FeatureSectionLayout>

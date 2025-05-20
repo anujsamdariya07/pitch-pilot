@@ -1,5 +1,5 @@
-import { CallStatusEnum } from '@prisma/client'
-import { Home, Settings, Sparkle, Users, Webcam } from 'lucide-react'
+import { CallStatusEnum } from '@prisma/client';
+import { Home, Settings, Sparkle, Users, Webcam } from 'lucide-react';
 export const sidebarData = [
   {
     id: 1,
@@ -32,13 +32,13 @@ export const sidebarData = [
     icon: Settings,
     link: '/settings',
   },
-]
+];
 
 export const onBoardingSteps = [
   { id: 1, title: 'Create a webinar', complete: false, link: '' },
   { id: 2, title: 'Get leads', complete: false, link: '' },
   { id: 3, title: 'Conversion status', complete: false, link: '' },
-]
+];
 
 export const potentialCustomer = [
   {
@@ -83,9 +83,9 @@ export const potentialCustomer = [
     tags: ['New', 'Hot Lead'],
     callStatus: CallStatusEnum.COMPLETED,
   },
-]
+];
 
-export const subscriptionPriceId = `price_1RLtR0Fj9oKEERu1zShQbtgG`
+export const subscriptionPriceId = `price_1RLtR0Fj9oKEERu1zShQbtgG`;
 
 export const aiAgentPrompt = `# Lead Qualification & Nurturing Agent Prompt
 
@@ -260,4 +260,4 @@ Only offer a team call as a secondary option if they aren’t ready to buy now.
 Use friendly, professional tone with subtle authority — be a trusted advisor, not a pushy salesperson.
 
 Be flexible in adjusting how each pillar is framed — but never alter the core offer or guarantees.
-`
+`;

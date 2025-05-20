@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Button } from '@/components/ui/button';
 import { User } from '@prisma/client';
@@ -28,20 +28,18 @@ const Header = ({ user }: Props) => {
           <ArrowLeft /> Back to Webinars
         </Button>
       ) : (
-        (
-          <div className='px-4 py-2 flex justify-center text-bold items-center rounded-xl bg-background border border-border text-primary capitalize'>
-            {pathname.split('/')[1]}
-          </div>
-        )
+        <div className='px-4 py-2 flex justify-center text-bold items-center rounded-xl bg-background border border-border text-primary capitalize'>
+          {pathname.split('/')[1]}
+        </div>
       )}
 
       <div className='flex gap-6 items-center flex-wrap'>
         <PurpleIcon>
-        <Zap width={20} />
+          <Zap width={20} />
         </PurpleIcon>
 
-      {/* TODO: build stripe subscription and create webinar button */}
-      <CreateWebinarButton/>
+        {/* TODO: build stripe subscription and create webinar button */}
+        <CreateWebinarButton />
       </div>
     </div>
   );

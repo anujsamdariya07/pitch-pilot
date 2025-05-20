@@ -45,9 +45,7 @@ const PageHeader = ({
             className='pl-10 rounded-md'
           />
         </div>
-        <div className='md:max-w-1/4 w-full overflow-x-auto'>
-        {children}
-        </div>
+        <div className='md:max-w-1/4 w-full overflow-x-auto'>{children}</div>
       </div>
     </div>
   );

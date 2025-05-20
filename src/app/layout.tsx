@@ -3,7 +3,7 @@ import { Manrope } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/providers/theme-provider';
 import { ClerkProvider } from '@clerk/nextjs';
-import {dark} from '@clerk/themes'
+import { dark } from '@clerk/themes';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider appearance={{baseTheme: dark}}>
+    <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang='en' suppressHydrationWarning>
         <body
           className={`${manrope.variable} antialiased`}

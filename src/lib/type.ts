@@ -1,4 +1,4 @@
-import { CtaTypeEnum } from "@prisma/client";
+import { Attendee, CtaTypeEnum } from "@prisma/client";
 import { ValidationError } from "next/dist/compiled/amphtml-validator";
 
 export type ValidationErrors = Record<string, string>;
@@ -81,4 +81,9 @@ export const validateAdditionalInfo = (data: {
     valid: Object.keys(errors).length === 0,
     errors
   }
+}
+
+export type AttendanceData = {
+  count: number
+  users: Attendee[]
 }

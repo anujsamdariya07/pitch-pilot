@@ -1,42 +1,42 @@
-'use client'
+'use client';
 
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Switch } from '@/components/ui/switch'
-import { cn } from '@/lib/utils'
-import { useWebinarStore } from '@/store/useWebinarStore'
-import { Info } from 'lucide-react'
-import React from 'react'
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Switch } from '@/components/ui/switch';
+import { cn } from '@/lib/utils';
+import { useWebinarStore } from '@/store/useWebinarStore';
+import { Info } from 'lucide-react';
+import React from 'react';
 
-type Props = {}
+type Props = {};
 
 const AdditionalInfoStep = (props: Props) => {
-  const {formData, updateAdditionalInfoField, getStepValidationErrors} = useWebinarStore()
+  const { formData, updateAdditionalInfoField, getStepValidationErrors } =
+    useWebinarStore();
 
   const errors = getStepValidationErrors('additionalInfo');
-  
-  const {lockChat, couponCode, couponEnabled} = formData.additionalInfo
-  
-  const handleToggleLockChat = (checked: boolean) => {
-    updateAdditionalInfoField('lockChat', checked)
-  }
-  
-  const handleToggleCoupon = (checked: boolean) => {
-    updateAdditionalInfoField('couponEnabled', checked)
-  }
 
-  const handleCouponCodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    updateAdditionalInfoField('couponCode', event.target.value)
-  }
-  
+  const { lockChat, couponCode, couponEnabled } = formData.additionalInfo;
+
+  const handleToggleLockChat = (checked: boolean) => {
+    updateAdditionalInfoField('lockChat', checked);
+  };
+
+  const handleToggleCoupon = (checked: boolean) => {
+    updateAdditionalInfoField('couponEnabled', checked);
+  };
+
+  const handleCouponCodeChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    updateAdditionalInfoField('couponCode', event.target.value);
+  };
+
   return (
     <div className='space-y-8'>
       <div className='flex items-center justify-between'>
         <div>
-          <Label
-          htmlFor='lock-chat'
-          className='text-base font-medium'
-          >
+          <Label htmlFor='lock-chat' className='text-base font-medium'>
             Lock Chat
           </Label>
           <p className='text-sm text-gray-400'>
@@ -44,16 +44,17 @@ const AdditionalInfoStep = (props: Props) => {
           </p>
         </div>
 
-          <Switch id='lock-chat' checked={lockChat || false} onCheckedChange={handleToggleLockChat}/>
+        <Switch
+          id='lock-chat'
+          checked={lockChat || false}
+          onCheckedChange={handleToggleLockChat}
+        />
       </div>
 
       <div className='space-y-4'>
         <div className='flex items-center justify-between'>
           <div>
-            <Label 
-              htmlFor='coupon-enabled'
-              className='text-base font-medium'
-            >
+            <Label htmlFor='coupon-enabled' className='text-base font-medium'>
               Coupon Code
             </Label>
             <p className='text-sm text-gray-400'>
@@ -80,21 +81,20 @@ const AdditionalInfoStep = (props: Props) => {
               )}
             />
             {errors.couponCode && (
-              <p className='text-sm text-red-400'>
-                {errors.couponCode}
-              </p>
+              <p className='text-sm text-red-400'>{errors.couponCode}</p>
             )}
             <div className='flex items-start gap-2 text-sm text-gray-400 mt-2'>
-              <Info className='h-4 w-4 mt-0.5'/>
+              <Info className='h-4 w-4 mt-0.5' />
               <p>
-                This coupon code can be used to promote a sale. Users can use it for the buy now CTA.
+                This coupon code can be used to promote a sale. Users can use it
+                for the buy now CTA.
               </p>
             </div>
           </div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AdditionalInfoStep
+export default AdditionalInfoStep;
