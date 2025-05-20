@@ -1,16 +1,21 @@
-'use client'
+'use client';
 
 import { Triangle } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import { sidebarData } from '@/lib/data';
-import { Tooltip, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import Link from 'next/link';
 import { UserButton } from '@clerk/nextjs';
 
 type Props = {};
 
-const Sidebar = (props : Props) => {
+const Sidebar = (props: Props) => {
   const pathname = usePathname();
 
   return (
@@ -22,28 +27,31 @@ const Sidebar = (props : Props) => {
 
       <div className='w-full h-full justify-between items-center flex flex-col'>
         <div className='w-full h-fit flex flex-col gap-4 items-center justify-center'>
-        {sidebarData.map((item) => (
-          <TooltipProvider key={item.id}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={item.link}
-                  className={`flex items-center gap-2 cursor-pointer rounded-lg p-2 ${
-                    pathname.includes(item.link) ? 'iconBackground' : ''
-                  }`}
-                >
-                  <item.icon
-                    className={`w-4 h04 ${
-                      pathname.includes(item.link) ? '' : 'opacity-80'
+          {sidebarData.map((item) => (
+            <TooltipProvider key={item.id}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={item.link}
+                    className={`flex items-center gap-2 cursor-pointer rounded-lg p-2 ${
+                      pathname.includes(item.link) ? 'iconBackground' : ''
                     }`}
-                  />
-                </Link>
-              </TooltipTrigger>
-            </Tooltip>
-          </TooltipProvider>
-        ))}
+                  >
+                    <item.icon
+                      className={`w-4 h04 ${
+                        pathname.includes(item.link) ? '' : 'opacity-80'
+                      }`}
+                    />
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent side='right'>
+                  <span className='text-sm'>{item.title}</span>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          ))}
         </div>
-        <UserButton/>
+        <UserButton />
       </div>
     </div>
   );

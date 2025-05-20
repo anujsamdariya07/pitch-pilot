@@ -6,6 +6,7 @@ import { ArrowLeft, Zap } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 import PurpleIcon from '../PurpleIcon';
+import CreateWebinarButton from '../CreateWebinarButton';
 
 type Props = {
   user: User;
@@ -34,11 +35,13 @@ const Header = ({ user }: Props) => {
         )
       )}
 
-{/* TODO: build stripe subscription and create webinar button */}
       <div className='flex gap-6 items-center flex-wrap'>
         <PurpleIcon>
         <Zap width={20} />
         </PurpleIcon>
+
+      {/* TODO: build stripe subscription and create webinar button */}
+      <CreateWebinarButton/>
       </div>
     </div>
   );
